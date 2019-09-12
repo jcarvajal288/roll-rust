@@ -25,3 +25,16 @@ fn main() {
     println!("{}", roll_statement);
     println!("{}", interpret_roll_statement(roll_statement));
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_3d6() {
+        let result: u32 = interpret_roll_statement(&String::from("3d6"));
+        assert!(result >= 3);
+        assert!(result <= 18);
+    }
+}
